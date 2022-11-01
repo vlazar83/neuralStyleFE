@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
-
+import { AnimationItem } from "lottie-web";
+import { AnimationOptions } from "ngx-lottie";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -17,7 +18,41 @@ export class AppComponent {
   secondFormGroup = this._formBuilder.group({
     secondCtrl: ["", Validators.required],
   });
+  thirdFormGroup = this._formBuilder.group({
+    thirdCtrl: [""],
+  });
   isLinear = false;
+
+  private animationItem!: AnimationItem;
+
+  options: AnimationOptions = {
+    path: "/assets/lf30_editor_k6rbt75z.json",
+  };
+
+  animationCreated(animationItem: AnimationItem): void {
+    console.log(animationItem);
+    this.animationItem = animationItem;
+    this.animationItem.autoplay = false;
+    //this.animationItem.loop = false;
+  }
+
+  stop(): void {
+    // this.ngZone.runOutsideAngular(() => {
+    //   this.animationItem.stop();
+    // });
+  }
+
+  play(): void {
+    console.log(this.animationItem.segmentPos);
+    this.animationItem.goToAndPlay(0);
+    //this.animationItem.play();
+    //this.animationItem.resetSegments(true);
+  }
+
+  onLoopComplete() {
+    this.animationItem.stop();
+    console.log(this.animationItem);
+  }
 
   constructor(private _formBuilder: FormBuilder) {}
 

@@ -55,12 +55,21 @@
       </div>
     </form>
   </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Processing</ng-template>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="startProcessing()">Start processing</button>
-    </div>
+  <mat-step [stepControl]="thirdFormGroup" label="Processing">
+    <form [formGroup]="thirdFormGroup">
+      <p matInput formControlName="thirdCtrl"></p>
+      <ng-lottie
+        height="500px"
+        [options]="options"
+        (animationCreated)="animationCreated($event)"
+        (loopComplete)="onLoopComplete()"
+        (click)="play()"
+      ></ng-lottie>
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+      </div>
+    </form>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
