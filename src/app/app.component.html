@@ -5,18 +5,20 @@
       <mat-form-field appearance="fill">
         <mat-label>Add Style Image</mat-label>
         <input matInput formControlName="firstCtrl" required />
-        <ngx-dropzone (change)="onSelectStyleFile($event)" [multiple]="false" accept="image/jpeg,image/jpg,image/png">
-          <ngx-dropzone-label>Drop Style Image</ngx-dropzone-label>
-          <ngx-dropzone-image-preview
-            [removable]="true"
-            ngProjectAs="ngx-dropzone-preview"
-            (removed)="onRemoveStyleFile(stylefile)"
-            *ngIf="stylefile!=undefined"
-            [file]="stylefile"
-          >
-            <ngx-dropzone-label>{{ stylefile.name }} ({{ stylefile.type }})</ngx-dropzone-label>
-          </ngx-dropzone-image-preview>
-        </ngx-dropzone>
+        <div class="custom-dropzone" ngx-dropzone>
+          <ngx-dropzone (change)="onSelectStyleFile($event)" [multiple]="false" accept="image/jpeg,image/jpg,image/png">
+            <ngx-dropzone-label>Drop Style Image</ngx-dropzone-label>
+            <ngx-dropzone-image-preview
+              [removable]="true"
+              ngProjectAs="ngx-dropzone-preview"
+              (removed)="onRemoveStyleFile(stylefile)"
+              *ngIf="stylefile!=undefined"
+              [file]="stylefile"
+            >
+              <ngx-dropzone-label>{{ stylefile.name }} ({{ stylefile.type }})</ngx-dropzone-label>
+            </ngx-dropzone-image-preview>
+          </ngx-dropzone>
+        </div>
       </mat-form-field>
       <div>
         <button mat-button matStepperNext>Next</button>
@@ -28,18 +30,24 @@
       <mat-form-field appearance="fill">
         <mat-label>Add Content Image</mat-label>
         <input matInput formControlName="secondCtrl" required />
-        <ngx-dropzone (change)="onSelectContentFile($event)" [multiple]="false" accept="image/jpeg,image/jpg,image/png">
-          <ngx-dropzone-label>Drop Content Image</ngx-dropzone-label>
-          <ngx-dropzone-image-preview
-            [removable]="true"
-            ngProjectAs="ngx-dropzone-preview"
-            (removed)="onRemoveContentFile(contentfile)"
-            *ngIf="contentfile!=undefined"
-            [file]="contentfile"
+        <div class="custom-dropzone" ngx-dropzone>
+          <ngx-dropzone
+            (change)="onSelectContentFile($event)"
+            [multiple]="false"
+            accept="image/jpeg,image/jpg,image/png"
           >
-            <ngx-dropzone-label>{{ contentfile.name }} ({{ contentfile.type }})</ngx-dropzone-label>
-          </ngx-dropzone-image-preview>
-        </ngx-dropzone>
+            <ngx-dropzone-label>Drop Content Image</ngx-dropzone-label>
+            <ngx-dropzone-image-preview
+              [removable]="true"
+              ngProjectAs="ngx-dropzone-preview"
+              (removed)="onRemoveContentFile(contentfile)"
+              *ngIf="contentfile!=undefined"
+              [file]="contentfile"
+            >
+              <ngx-dropzone-label>{{ contentfile.name }} ({{ contentfile.type }})</ngx-dropzone-label>
+            </ngx-dropzone-image-preview>
+          </ngx-dropzone>
+        </div>
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>

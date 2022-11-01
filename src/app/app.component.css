@@ -1,8 +1,39 @@
 .mat-stepper-horizontal {
-    margin-top: 8px;
-  }
-  
-  .mat-form-field {
-    margin-top: 16px;
-  }
-  
+  margin-top: 8px;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+}
+
+ngx-dropzone {
+  width: 500px;
+}
+
+.custom-dropzone {
+  margin: 20px;
+}
+
+.custom-dropzone {
+  height: 250px;
+  width: 500px;
+  background: #333;
+  color: #fff;
+  border: 5px dashed #c2185b;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.custom-dropzone.ngx-dz-hovered {
+  border: 5px solid #c2185b;
+}
+
+mat-form-field.mat-form-field.ng-tns-c92-1.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-fill.mat-form-field-can-float.mat-form-field-has-label.mat-form-field-hide-placeholder.ng-untouched.ng-pristine.ng-invalid.ng-star-inserted {
+  width: 580px;
+  text-align: center;
+}
+
+mat-form-field.mat-form-field.ng-tns-c92-2.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-fill.mat-form-field-can-float.mat-form-field-has-label.mat-form-field-hide-placeholder.ng-untouched.ng-pristine.ng-invalid.ng-star-inserted {
+  width: 580px;
+  text-align: center;
+}
