@@ -7,7 +7,13 @@
 }
 
 ngx-dropzone {
-  width: 500px;
+  height: 600px !important;
+  width: 1000px !important;
+}
+
+ngx-dropzone-image-preview.ng-star-inserted {
+  height: 600px !important;
+  width: 1000px !important;
 }
 
 .custom-dropzone {
@@ -15,8 +21,8 @@ ngx-dropzone {
 }
 
 .custom-dropzone {
-  height: 250px;
-  width: 500px;
+  height: 600px;
+  width: 1000px;
   background: #333;
   color: #fff;
   border: 5px dashed #c2185b;
@@ -29,11 +35,11 @@ ngx-dropzone {
 }
 
 mat-form-field.mat-form-field.ng-tns-c92-1.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-fill.mat-form-field-can-float.mat-form-field-has-label.mat-form-field-hide-placeholder.ng-untouched.ng-pristine.ng-invalid.ng-star-inserted {
-  width: 580px;
+  width: 1080px;
   text-align: center;
 }
 
 mat-form-field.mat-form-field.ng-tns-c92-2.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-fill.mat-form-field-can-float.mat-form-field-has-label.mat-form-field-hide-placeholder.ng-untouched.ng-pristine.ng-invalid.ng-star-inserted {
-  width: 580px;
+  width: 1080px;
   text-align: center;
 }

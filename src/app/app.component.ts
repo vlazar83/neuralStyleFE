@@ -43,4 +43,6 @@ export class AppComponent {
     this.contentfile = undefined;
     //this.files.splice(this.files.indexOf(event), 1);
   }
+
+  startProcessing() {}
 }

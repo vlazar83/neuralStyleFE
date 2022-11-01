@@ -56,6 +56,13 @@
     </form>
   </mat-step>
   <mat-step>
+    <ng-template matStepLabel>Processing</ng-template>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="startProcessing()">Start processing</button>
+    </div>
+  </mat-step>
+  <mat-step>
     <ng-template matStepLabel>Done</ng-template>
     <p>You are now done.</p>
     <div>
