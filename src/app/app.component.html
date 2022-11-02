@@ -21,7 +21,9 @@
         </div>
       </mat-form-field>
       <div>
-        <button (click)="nextClicked()"><mat-icon>navigate_next</mat-icon></button>
+        <button class="navigationButton" (click)="nextClicked()" [disabled]="!stylefileStatus">
+          <mat-icon>navigate_next</mat-icon>
+        </button>
       </div>
     </form>
   </mat-step>
@@ -50,8 +52,12 @@
         </div>
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious><mat-icon>navigate_before</mat-icon></button>
-        <button (click)="nextClicked()"><mat-icon>navigate_next</mat-icon></button>
+        <button class="navigationButton" mat-button matStepperPrevious>
+          <mat-icon>navigate_before</mat-icon>
+        </button>
+        <button class="navigationButton" (click)="nextClicked()" [disabled]="!contentfileStatus">
+          <mat-icon>navigate_next</mat-icon>
+        </button>
       </div>
     </form>
   </mat-step>
@@ -62,20 +68,22 @@
         height="500px"
         [options]="options"
         (animationCreated)="animationCreated($event)"
-        (loopComplete)="stepper.next();stepper.disableRipple=true "
+        (loopComplete)="stepper.next()"
         (click)="play()"
       ></ng-lottie>
 
       <div>
-        <button mat-button matStepperPrevious><mat-icon>navigate_before</mat-icon></button>
+        <button class="navigationButton" mat-button matStepperPrevious [disabled]="!processingStatus">
+          <mat-icon>navigate_before</mat-icon>
+        </button>
       </div>
     </form>
   </mat-step>
   <mat-step #fourthStep>
     <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
+    <p class="message">Click to start a new processing</p>
     <div>
-      <button mat-button (click)="resetClicked()">Reset</button>
+      <button class="navigationButton" mat-button (click)="resetClicked()">Go</button>
     </div>
   </mat-step>
 </mat-stepper>

@@ -7,12 +7,12 @@
 }
 
 ngx-dropzone {
-  height: 600px !important;
+  height: 599px !important;
   width: 1000px !important;
 }
 
 ngx-dropzone-image-preview.ng-star-inserted {
-  height: 600px !important;
+  height: 599px !important;
   width: 1000px !important;
 }
 
@@ -25,8 +25,7 @@ ngx-dropzone-image-preview.ng-star-inserted {
   width: 1000px;
   background: #333;
   color: #fff;
-  border: 5px dashed #c2185b;
-  border-radius: 5px;
+  border: 5px solid #c2185b;
   font-size: 20px;
 }
 
@@ -51,4 +50,16 @@ mat-form-field.mat-form-field.ng-tns-c92-2.mat-primary.mat-form-field-type-mat-i
 
 ::ng-deep .mat-horizontal-stepper-header{
   pointer-events: none !important;
+}
+
+.navigationButton{
+  width: 50px;
+  height: 50px;
+  background-color: #c2185b;
+  border: 0px;
+  margin-right: 10px;
+}
+
+.message{
+  color: #c2185b;
 }

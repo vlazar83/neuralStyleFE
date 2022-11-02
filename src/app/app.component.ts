@@ -11,7 +11,10 @@ import { AnimationOptions } from "ngx-lottie";
 export class AppComponent {
   title = "neuralStyleFE";
   stylefile: File | undefined;
+  stylefileStatus: boolean = false;
   contentfile: File | undefined;
+  contentfileStatus: boolean = false;
+  processingStatus: boolean = false;
 
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ["", Validators.required],
@@ -45,9 +48,9 @@ export class AppComponent {
 
   play(): void {
     console.log(this.animationItem.segmentPos);
-    this.animationItem.goToAndPlay(0);
-    //this.animationItem.play();
-    //this.animationItem.resetSegments(true);
+    // this.animationItem.goToAndPlay(0);
+    this.animationItem.play();
+    this.startProcessing();
   }
 
   onLoopComplete() {
@@ -58,29 +61,39 @@ export class AppComponent {
   constructor(private _formBuilder: FormBuilder) {}
 
   onSelectStyleFile(event: { addedFiles: any }) {
+    this.stylefileStatus = false;
     console.log(event);
     this.stylefile = event.addedFiles[0];
+    if (event.addedFiles[0] != undefined) this.stylefileStatus = true;
   }
 
   onRemoveStyleFile(event: File) {
     console.log(event);
     this.stylefile = undefined;
+    this.stylefileStatus = false;
     //this.files.splice(this.files.indexOf(event), 1);
   }
 
   onSelectContentFile(event: { addedFiles: any }) {
+    this.contentfileStatus = false;
+    this.processingStatus = false;
     console.log(event);
     this.contentfile = event.addedFiles[0];
-    //this.files.push(...event.addedFiles);
+    if (event.addedFiles[0] != undefined) {
+      this.contentfileStatus = true;
+      this.processingStatus = true;
+    }
   }
 
   onRemoveContentFile(event: File) {
     console.log(event);
     this.contentfile = undefined;
-    //this.files.splice(this.files.indexOf(event), 1);
+    this.contentfileStatus = false;
   }
 
-  startProcessing() {}
+  startProcessing() {
+    this.processingStatus = false;
+  }
 
   @ViewChild("stepper") stepper!: MatStepper;
 
@@ -101,5 +114,10 @@ export class AppComponent {
     this.thirdStep.reset();
     this.animationItem.stop();
     this.stepper.reset();
+
+    this.stylefile = undefined;
+    this.contentfile = undefined;
+    this.stylefileStatus = false;
+    this.contentfileStatus = false;
   }
 }
