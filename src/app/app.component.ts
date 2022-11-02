@@ -1,5 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
+import { MatStep, MatStepper } from "@angular/material/stepper";
 import { AnimationItem } from "lottie-web";
 import { AnimationOptions } from "ngx-lottie";
 @Component({
@@ -80,4 +81,25 @@ export class AppComponent {
   }
 
   startProcessing() {}
+
+  @ViewChild("stepper") stepper!: MatStepper;
+
+  nextClicked() {
+    this.stepper.selected!.completed = true;
+    this.stepper.next();
+  }
+
+  @ViewChild("firstStep") firstStep!: MatStep;
+  @ViewChild("secondStep") secondStep!: MatStep;
+  @ViewChild("thirdStep") thirdStep!: MatStep;
+  @ViewChild("fourthStep") fourthStep!: MatStep;
+
+  resetClicked() {
+    console.log("sdfdsfds");
+    this.firstStep.reset();
+    this.secondStep.reset();
+    this.thirdStep.reset();
+    this.animationItem.stop();
+    this.stepper.reset();
+  }
 }

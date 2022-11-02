@@ -1,5 +1,5 @@
-<mat-stepper [linear]="isLinear" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
+<mat-stepper [linear]="isLinear" #stepper animationDuration="2000">
+  <mat-step #firstStep [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
       <ng-template matStepLabel>Add Style Image</ng-template>
       <mat-form-field appearance="fill">
@@ -21,11 +21,11 @@
         </div>
       </mat-form-field>
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button (click)="nextClicked()">Next</button>
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="secondFormGroup" label="Add Content Image">
+  <mat-step #secondStep [stepControl]="secondFormGroup" label="Add Content Image">
     <form [formGroup]="secondFormGroup">
       <mat-form-field appearance="fill">
         <mat-label>Add Content Image</mat-label>
@@ -51,18 +51,18 @@
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button (click)="nextClicked()">Next</button>
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="thirdFormGroup" label="Processing">
+  <mat-step #thirdStep [stepControl]="thirdFormGroup" label="Processing">
     <form [formGroup]="thirdFormGroup">
       <p matInput formControlName="thirdCtrl"></p>
       <ng-lottie
         height="500px"
         [options]="options"
         (animationCreated)="animationCreated($event)"
-        (loopComplete)="onLoopComplete()"
+        (loopComplete)="stepper.next();stepper.disableRipple=true "
         (click)="play()"
       ></ng-lottie>
 
@@ -71,12 +71,11 @@
       </div>
     </form>
   </mat-step>
-  <mat-step>
+  <mat-step #fourthStep >
     <ng-template matStepLabel>Done</ng-template>
     <p>You are now done.</p>
     <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-button (click)="resetClicked()">Reset</button>
     </div>
   </mat-step>
 </mat-stepper>

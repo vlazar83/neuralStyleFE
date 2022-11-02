@@ -48,3 +48,7 @@ mat-form-field.mat-form-field.ng-tns-c92-2.mat-primary.mat-form-field-type-mat-i
   width: 1080px;
   text-align: center;
 }
+
+::ng-deep .mat-horizontal-stepper-header{
+  pointer-events: none !important;
+}
