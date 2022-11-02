@@ -21,7 +21,7 @@
         </div>
       </mat-form-field>
       <div>
-        <button (click)="nextClicked()">Next</button>
+        <button (click)="nextClicked()"><mat-icon>navigate_next</mat-icon></button>
       </div>
     </form>
   </mat-step>
@@ -50,8 +50,8 @@
         </div>
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button (click)="nextClicked()">Next</button>
+        <button mat-button matStepperPrevious><mat-icon>navigate_before</mat-icon></button>
+        <button (click)="nextClicked()"><mat-icon>navigate_next</mat-icon></button>
       </div>
     </form>
   </mat-step>
@@ -67,11 +67,11 @@
       ></ng-lottie>
 
       <div>
-        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperPrevious><mat-icon>navigate_before</mat-icon></button>
       </div>
     </form>
   </mat-step>
-  <mat-step #fourthStep >
+  <mat-step #fourthStep>
     <ng-template matStepLabel>Done</ng-template>
     <p>You are now done.</p>
     <div>
