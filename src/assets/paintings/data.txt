@@ -1,6 +1,13 @@
 assets/paintings/top-1-the-starry-night.jpg
+assets/paintings/top-2-the-kiss.jpg
+assets/paintings/top-3-girl-with-a-pearl-earring.jpg
+assets/paintings/top-4-adele-bloch-bauer-i.jpg
+assets/paintings/top-5-christ-salvator-mundi.jpg
+assets/paintings/top-6-the-lady-of-shalott.jpg
+assets/paintings/top-7-luncheon-of-the-boating-party.jpg
+assets/paintings/top-8-impression-sunrise.jpg
+assets/paintings/top-9-starry-night-over-the-rhone.jpg
 assets/paintings/top-10-irises.jpg
-assets/paintings/top-100-rapallo-boats.jpg
 assets/paintings/top-11-mona-lisa-also-known-as-la-gioconda.jpg
 assets/paintings/top-12-wheat-field-with-cypresses.jpg
 assets/paintings/top-13-composition-viii.jpg
@@ -10,7 +17,6 @@ assets/paintings/top-16-the-cafe-terrace-on-the-place-de-forum-arles-at-night.jp
 assets/paintings/top-17-wanderer-above-the-sea-of-fog.jpg
 assets/paintings/top-18-freya-s-tears-golden-tears.jpg
 assets/paintings/top-19-branches-with-almond-blossom.jpg
-assets/paintings/top-2-the-kiss.jpg
 assets/paintings/top-20-the-avenue-in-the-rain.jpg
 assets/paintings/top-21-portrait-of-cecilia-gallerani.jpg
 assets/paintings/top-22-the-goldfinch.jpg
@@ -21,7 +27,6 @@ assets/paintings/top-26-the-fighting-temeraire.jpg
 assets/paintings/top-27-lady-godiva.jpg
 assets/paintings/top-28-water-lilies.jpg
 assets/paintings/top-29-young-boy-with-dog.jpg
-assets/paintings/top-3-girl-with-a-pearl-earring.jpg
 assets/paintings/top-30-irises-in-monet-s-garden.jpg
 assets/paintings/top-31-the-scream.jpg
 assets/paintings/top-32-two-sisters-also-known-as-on-the-terrace.jpg
@@ -32,7 +37,6 @@ assets/paintings/top-36-skull-with-burning-cigarette.jpg
 assets/paintings/top-37-the-seine-at-asnieres-the-skiff.jpg
 assets/paintings/top-38-old-live-oak-tree-and-bluebonnets.jpg
 assets/paintings/top-39-the-floor-scrapers-also-known-as-the-floor-strippers.jpg
-assets/paintings/top-4-adele-bloch-bauer-i.jpg
 assets/paintings/top-40-the-boxer.jpg
 assets/paintings/top-41-fulfillment-stoclet-frieze.jpg
 assets/paintings/top-42-champ-de-mars-the-red-tower.jpg
@@ -43,7 +47,6 @@ assets/paintings/top-46-flower-garden.jpg
 assets/paintings/top-47-the-swing.jpg
 assets/paintings/top-48-poppy-field-in-a-hollow-near-giverny.jpg
 assets/paintings/top-49-the-milkmaid.jpg
-assets/paintings/top-5-christ-salvator-mundi.jpg
 assets/paintings/top-50-napoleon-crossing-the-alps-malmaison.jpg
 assets/paintings/top-51-the-school-of-athens-stanza-della-segnatura.jpg
 assets/paintings/top-52-valley-of-the-yosemite.jpg
@@ -54,7 +57,6 @@ assets/paintings/top-56-apple-tree-with-red-fruit.jpg
 assets/paintings/top-57-innocence-small-version.jpg
 assets/paintings/top-58-the-water-lily-pond-japanese-bridge.jpg
 assets/paintings/top-59-flaming-june.jpg
-assets/paintings/top-6-the-lady-of-shalott.jpg
 assets/paintings/top-60-irene-cahen-d-anvers-also-known-as-little-irene.jpg
 assets/paintings/top-61-sunflowers.jpg
 assets/paintings/top-62-cypress-against-a-starry-sky.jpg
@@ -65,7 +67,6 @@ assets/paintings/top-66-the-kingfisher.jpg
 assets/paintings/top-67-paris-street-rainy-day.jpg
 assets/paintings/top-68-the-girls-on-the-bridge.jpg
 assets/paintings/top-69-several-circles.jpg
-assets/paintings/top-7-luncheon-of-the-boating-party.jpg
 assets/paintings/top-70-view-of-delft.jpg
 assets/paintings/top-71-christ-in-the-storm.jpg
 assets/paintings/top-72-composition-vii.jpg
@@ -76,7 +77,6 @@ assets/paintings/top-76-the-card-players.jpg
 assets/paintings/top-77-the-green-dancer.jpg
 assets/paintings/top-78-female-head.jpg
 assets/paintings/top-79-the-siesta.jpg
-assets/paintings/top-8-impression-sunrise.jpg
 assets/paintings/top-80-girls-playing-in-surf.jpg
 assets/paintings/top-81-creation-of-adam.jpg
 assets/paintings/top-82-the-bathing-cove.jpg
@@ -87,7 +87,6 @@ assets/paintings/top-86-venice-piazza-san-marco-with-the-basilica-and-campani.jp
 assets/paintings/top-87-reclining-nude.jpg
 assets/paintings/top-88-madonna-with-the-child-and-two-angels.jpg
 assets/paintings/top-89-dancers.jpg
-assets/paintings/top-9-starry-night-over-the-rhone.jpg
 assets/paintings/top-90-lady-with-fan.jpg
 assets/paintings/top-91-woman-with-a-parasol-in-a-garden.jpg
 assets/paintings/top-92-the-magic-circle.jpg
@@ -98,4 +97,4 @@ assets/paintings/top-96-the-astronomer.jpg
 assets/paintings/top-97-boulevard-montmartre-night-effect.jpg
 assets/paintings/top-98-a-sunday-afternoon-on-the-island-of-la-grande-jatte.jpg
 assets/paintings/top-99-dance-at-bougival.jpg
-assets/paintings/
+assets/paintings/top-100-rapallo-boats.jpg

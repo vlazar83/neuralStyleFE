@@ -5,6 +5,7 @@ import { AnimationItem } from "lottie-web";
 import { AnimationOptions } from "ngx-lottie";
 import { readdirSync } from "fs";
 import { MatSnackBar } from "@angular/material/snack-bar";
+import { painting_names } from "../assets/paintings/painting_names";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -144,6 +145,7 @@ export class AppComponent implements OnInit {
 
   imageClicked(i: number) {
     console.log("clicked:" + i);
-    this.openSnackBar("Selected painting Nr.:" + i, "OK");
+    this.openSnackBar("Selected painting: " + painting_names.data[i], "OK");
+    this.stylefileStatus = true;
   }
 }
