@@ -11,6 +11,8 @@ import { LottieModule } from "ngx-lottie";
 import player from "lottie-web";
 import { MatIconModule } from "@angular/material/icon";
 import { NgImageSliderModule } from "ng-image-slider";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { OverlayModule } from "@angular/cdk/overlay";
 
 // Note we need a separate function as it's required
 // by the AOT compiler.
@@ -22,6 +24,7 @@ export function playerFactory() {
   imports: [
     BrowserModule,
     MatIconModule,
+    OverlayModule,
     NgImageSliderModule,
     NgxDropzoneModule,
     BrowserAnimationsModule,
@@ -32,7 +35,7 @@ export function playerFactory() {
     MatInputModule,
     LottieModule.forRoot({ player: playerFactory }),
   ],
-  providers: [],
+  providers: [MatSnackBar],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

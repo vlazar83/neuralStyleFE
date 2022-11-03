@@ -1,6 +1,6 @@
 <mat-stepper [linear]="isLinear" #stepper animationDuration="2000">
   <mat-step #firstStep [stepControl]="firstFormGroup">
-    <div class="container">
+    <div>
       <mat-label class="message">Add Style Image</mat-label>
       <div class="custom-dropzone" ngx-dropzone>
         <ngx-dropzone (change)="onSelectStyleFile($event)" [multiple]="false" accept="image/jpeg,image/jpg,image/png">
@@ -20,20 +20,21 @@
     <ng-image-slider
       [images]="imageObject"
       #nav
+      [slideImage]="6"
       [imagePopup]="false"
       (imageClick)="imageClicked($event)"
     ></ng-image-slider>
-    <div class="container">
+    <div>
       <button class="navigationButton" (click)="nextClicked()" [disabled]="!stylefileStatus">
         <mat-icon>navigate_next</mat-icon>
       </button>
     </div>
   </mat-step>
   <mat-step #secondStep [stepControl]="secondFormGroup" label="Add Content Image">
-    <mat-label>Add Content Image</mat-label>
+    <mat-label class="message">Add Content Image</mat-label>
     <div class="custom-dropzone" ngx-dropzone>
       <ngx-dropzone (change)="onSelectContentFile($event)" [multiple]="false" accept="image/jpeg,image/jpg,image/png">
-        <ngx-dropzone-label>Drop Content Image</ngx-dropzone-label>
+        <ngx-dropzone-label class="message">Drop Content Image</ngx-dropzone-label>
         <ngx-dropzone-image-preview
           [removable]="true"
           ngProjectAs="ngx-dropzone-preview"
@@ -55,22 +56,19 @@
     </div>
   </mat-step>
   <mat-step #thirdStep [stepControl]="thirdFormGroup" label="Processing">
-    <form [formGroup]="thirdFormGroup">
-      <p matInput formControlName="thirdCtrl"></p>
-      <ng-lottie
-        height="500px"
-        [options]="options"
-        (animationCreated)="animationCreated($event)"
-        (loopComplete)="stepper.next()"
-        (click)="play()"
-      ></ng-lottie>
+    <ng-lottie
+      height="500px"
+      [options]="options"
+      (animationCreated)="animationCreated($event)"
+      (loopComplete)="stepper.next()"
+      (click)="play()"
+    ></ng-lottie>
 
-      <div>
-        <button class="navigationButton" mat-button matStepperPrevious [disabled]="!processingStatus">
-          <mat-icon>navigate_before</mat-icon>
-        </button>
-      </div>
-    </form>
+    <div>
+      <button class="navigationButton" mat-button matStepperPrevious [disabled]="!processingStatus">
+        <mat-icon>navigate_before</mat-icon>
+      </button>
+    </div>
   </mat-step>
   <mat-step #fourthStep>
     <ng-template matStepLabel>Done</ng-template>

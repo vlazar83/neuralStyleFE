@@ -1,21 +1,23 @@
-import { Component, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { MatStep, MatStepper } from "@angular/material/stepper";
 import { AnimationItem } from "lottie-web";
 import { AnimationOptions } from "ngx-lottie";
 import { readdirSync } from "fs";
+import { MatSnackBar } from "@angular/material/snack-bar";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = "neuralStyleFE";
   stylefile: File | undefined;
   stylefileStatus: boolean = false;
   contentfile: File | undefined;
   contentfileStatus: boolean = false;
   processingStatus: boolean = false;
+  imageObject: Array<object> = [];
 
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ["", Validators.required],
@@ -59,8 +61,14 @@ export class AppComponent {
     console.log(this.animationItem);
   }
 
-  constructor(private _formBuilder: FormBuilder) {
-    //this.listFiles();
+  constructor(private _formBuilder: FormBuilder, private _snackBar: MatSnackBar) {}
+
+  ngOnInit(): void {
+    this.fillArray();
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
   }
 
   onSelectStyleFile(event: { addedFiles: any }) {
@@ -136,15 +144,6 @@ export class AppComponent {
 
   imageClicked(i: number) {
     console.log("clicked:" + i);
+    this.openSnackBar("Selected painting Nr.:" + i, "OK");
   }
-  imageObject: Array<object> = [
-    {
-      image: "assets/paintings/top-1-the-starry-night.jpg",
-      thumbImage: "assets/paintings/top-1-the-starry-night.jpg",
-    },
-    {
-      image: "assets/paintings/top-10-irises.jpg",
-      thumbImage: "assets/paintings/top-10-irises.jpg",
-    },
-  ];
 }
