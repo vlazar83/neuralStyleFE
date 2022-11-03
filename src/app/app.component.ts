@@ -124,14 +124,15 @@ export class AppComponent {
     this.contentfileStatus = false;
   }
 
-  // testFolder = "./tests/";
-
-  // listFiles() {
-  //   readdirSync(this.testFolder).forEach((fileName: string) => {
-  //     console.log(fileName);
-  //     this.imageObject.push({ image: "assets/paintings/" + fileName });
-  //   });
-  // }
+  fillArray() {
+    for (let i = 1; i <= 100; i++) {
+      console.log("Block statement execution no." + i);
+      this.imageObject.push({
+        image: "assets/paintings/top-" + i + ".jpg",
+        thumbImage: "assets/paintings/top-" + i + ".jpg",
+      });
+    }
+  }
 
   imageClicked(i: number) {
     console.log("clicked:" + i);
