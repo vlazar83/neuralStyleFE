@@ -10,6 +10,7 @@ import { MatInputModule } from "@angular/material/input";
 import { LottieModule } from "ngx-lottie";
 import player from "lottie-web";
 import { MatIconModule } from "@angular/material/icon";
+import { NgImageSliderModule } from "ng-image-slider";
 
 // Note we need a separate function as it's required
 // by the AOT compiler.
@@ -21,6 +22,7 @@ export function playerFactory() {
   imports: [
     BrowserModule,
     MatIconModule,
+    NgImageSliderModule,
     NgxDropzoneModule,
     BrowserAnimationsModule,
     MatStepperModule,

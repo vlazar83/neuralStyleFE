@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from "@angular/forms";
 import { MatStep, MatStepper } from "@angular/material/stepper";
 import { AnimationItem } from "lottie-web";
 import { AnimationOptions } from "ngx-lottie";
+import { readdirSync } from "fs";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -58,7 +59,9 @@ export class AppComponent {
     console.log(this.animationItem);
   }
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private _formBuilder: FormBuilder) {
+    //this.listFiles();
+  }
 
   onSelectStyleFile(event: { addedFiles: any }) {
     this.stylefileStatus = false;
@@ -120,4 +123,27 @@ export class AppComponent {
     this.stylefileStatus = false;
     this.contentfileStatus = false;
   }
+
+  // testFolder = "./tests/";
+
+  // listFiles() {
+  //   readdirSync(this.testFolder).forEach((fileName: string) => {
+  //     console.log(fileName);
+  //     this.imageObject.push({ image: "assets/paintings/" + fileName });
+  //   });
+  // }
+
+  imageClicked(i: number) {
+    console.log("clicked:" + i);
+  }
+  imageObject: Array<object> = [
+    {
+      image: "assets/paintings/top-1-the-starry-night.jpg",
+      thumbImage: "assets/paintings/top-1-the-starry-night.jpg",
+    },
+    {
+      image: "assets/paintings/top-10-irises.jpg",
+      thumbImage: "assets/paintings/top-10-irises.jpg",
+    },
+  ];
 }

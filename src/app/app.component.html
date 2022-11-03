@@ -26,6 +26,12 @@
         </button>
       </div>
     </form>
+    <ng-image-slider
+      [images]="imageObject"
+      #nav
+      [imagePopup]="false"
+      (imageClick)="imageClicked($event)"
+    ></ng-image-slider>
   </mat-step>
   <mat-step #secondStep [stepControl]="secondFormGroup" label="Add Content Image">
     <form [formGroup]="secondFormGroup">
