@@ -9,7 +9,7 @@ import { FETCH_TOKEN_BASIC_AUTH_HEADER_VALUE } from "src/environments/secret/sec
 @Injectable({
   providedIn: "root",
 })
-export class ConfigService {
+export class HttpClientService {
   constructor(private http: HttpClient) {}
 
   token: string = "";
