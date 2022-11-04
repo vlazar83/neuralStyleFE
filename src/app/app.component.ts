@@ -6,7 +6,7 @@ import { AnimationOptions } from "ngx-lottie";
 import { readdirSync } from "fs";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { painting_names } from "../assets/paintings/painting_names";
-import { HttpClientService } from "./services/httpClient.service";
+import { HttpClientService } from "./httpClient/services/httpClient.service";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
