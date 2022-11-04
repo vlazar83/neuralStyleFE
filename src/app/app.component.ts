@@ -6,6 +6,7 @@ import { AnimationOptions } from "ngx-lottie";
 import { readdirSync } from "fs";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { painting_names } from "../assets/paintings/painting_names";
+import { HttpClientService } from "./services/httpClient.service";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -30,6 +31,8 @@ export class AppComponent implements OnInit {
     thirdCtrl: [""],
   });
   isLinear = false;
+
+  token: string = "";
 
   private animationItem!: AnimationItem;
 
@@ -62,7 +65,11 @@ export class AppComponent implements OnInit {
     console.log(this.animationItem);
   }
 
-  constructor(private _formBuilder: FormBuilder, private _snackBar: MatSnackBar) {}
+  constructor(
+    private _formBuilder: FormBuilder,
+    private _snackBar: MatSnackBar,
+    private _httpClientService: HttpClientService
+  ) {}
 
   ngOnInit(): void {
     this.fillArray();
@@ -103,8 +110,10 @@ export class AppComponent implements OnInit {
     this.contentfileStatus = false;
   }
 
-  startProcessing() {
+  async startProcessing() {
     this.processingStatus = false;
+    this.token = await this._httpClientService.fetchToken()!;
+    console.log("Fetched token: " + this.token);
   }
 
   @ViewChild("stepper") stepper!: MatStepper;

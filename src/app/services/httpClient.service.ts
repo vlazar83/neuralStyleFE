@@ -12,8 +12,6 @@ import { FETCH_TOKEN_BASIC_AUTH_HEADER_VALUE } from "src/environments/secret/sec
 export class HttpClientService {
   constructor(private http: HttpClient) {}
 
-  token: string = "";
-
   fetchTokenBody: FetchTokenBody = {
     audience: "https://neuralStyle/transfer",
     grant_type: "client_credentials",
@@ -26,20 +24,22 @@ export class HttpClientService {
     }),
   };
 
-  /** POST: add a new hero to the database */
-  fetchToken() {
+  async fetchToken(): Promise<string> {
+    var token = "";
     const request$ = this.http.post<FetchTokenResponseBody>(
       environment.tokenUrl,
       this.fetchTokenBody,
       this.httpOptions
     );
 
-    firstValueFrom(request$)
+    await firstValueFrom(request$)
       .catch((err) => {
         console.log(err);
       })
       .then((result) => {
-        this.token = result!.access_token;
+        token = result!.access_token;
       });
+
+    return token;
   }
 }
