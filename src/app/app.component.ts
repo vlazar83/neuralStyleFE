@@ -41,16 +41,8 @@ export class AppComponent implements OnInit {
   };
 
   animationCreated(animationItem: AnimationItem): void {
-    console.log(animationItem);
     this.animationItem = animationItem;
     this.animationItem.autoplay = false;
-    //this.animationItem.loop = false;
-  }
-
-  stop(): void {
-    // this.ngZone.runOutsideAngular(() => {
-    //   this.animationItem.stop();
-    // });
   }
 
   play(): void {
@@ -143,11 +135,10 @@ export class AppComponent implements OnInit {
   }
 
   fillArray() {
-    for (let i = 1; i <= 100; i++) {
-      console.log("Block statement execution no." + i);
+    for (let i = 1; i <= 87; i++) {
       this.imageObject.push({
-        image: "assets/paintings/top-" + i + ".jpg",
-        thumbImage: "assets/paintings/top-" + i + ".jpg",
+        image: "assets/paintings/large/top-" + i + ".JPG",
+        thumbImage: "assets/paintings/small/top-" + i + ".JPG",
       });
     }
   }
