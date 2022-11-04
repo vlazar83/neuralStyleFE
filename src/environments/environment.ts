@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  tokenUrl: "https://dev-sm4ylq004f4gs18a.eu.auth0.com/oauth/token",
 };
 
 /*

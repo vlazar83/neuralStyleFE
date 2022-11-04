@@ -13,6 +13,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { NgImageSliderModule } from "ng-image-slider";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { OverlayModule } from "@angular/cdk/overlay";
+import { HttpClientModule } from "@angular/common/http";
 
 // Note we need a separate function as it's required
 // by the AOT compiler.
@@ -23,6 +24,7 @@ export function playerFactory() {
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    HttpClientModule,
     MatIconModule,
     OverlayModule,
     NgImageSliderModule,
