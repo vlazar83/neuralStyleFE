@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { firstValueFrom, Observable, throwError } from "rxjs";
 import { catchError, retry } from "rxjs/operators";
 import { environment } from "src/environments/environment";
-import { FetchTokenBody, FetchTokenResponseBody } from "../models/interfaces";
+import { FetchTokenBody, FetchTokenResponseBody } from "../httpClient/interfaces";
 import { FETCH_TOKEN_BASIC_AUTH_HEADER_VALUE } from "src/environments/secret/secret";
 
 @Injectable({
