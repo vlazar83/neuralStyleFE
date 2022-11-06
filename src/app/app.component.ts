@@ -89,8 +89,9 @@ export class AppComponent implements OnInit {
 
   async startProcessing() {
     this.processingStatus = false;
-    this.token = await this._httpClientService.fetchToken()!;
-    console.log("Fetched token: " + this.token);
+    // this.token = await this._httpClientService.fetchToken()!;
+    // console.log("Fetched token: " + this.token);
+    this._httpClientService.sendImages(this.stylefile!, this.contentfile!);
   }
 
   // stepper related codes
