@@ -50,7 +50,6 @@ export class HttpClientService {
     let formData = new FormData();
     formData.append("files", styleFile);
     formData.append("files", contentFile);
-
     const upload$ = this.http.post(environment.backendUrl, formData, httpOptions);
 
     upload$.subscribe((event) => {

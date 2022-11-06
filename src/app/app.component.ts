@@ -60,7 +60,7 @@ export class AppComponent implements OnInit {
     this.stylefileStatus = true;
   }
 
-  imageClicked(i: number) {
+  async imageClicked(i: number) {
     console.log("clicked:" + i);
     this.openSnackBar("Selected painting: " + painting_names.data[i], "OK");
     this.stylefileStatus = true;
@@ -68,6 +68,11 @@ export class AppComponent implements OnInit {
     this.imageSelectedWithClick = true;
     i = i + 1;
     this.imageSelectedWithClickSrc = "./assets/paintings/large/top-" + i + ".JPG";
+
+    const imageUrl = await fetch(this.imageSelectedWithClickSrc);
+    const buffer = await imageUrl.arrayBuffer();
+
+    this.stylefile = new File([buffer], "fileName");
   }
 
   onSelectContentFile(event: { addedFiles: any }) {
