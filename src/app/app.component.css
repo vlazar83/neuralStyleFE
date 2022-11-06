@@ -18,9 +18,6 @@ ngx-dropzone-image-preview.ng-star-inserted {
 
 .custom-dropzone {
   margin: 20px;
-}
-
-.custom-dropzone {
   height: 600px;
   width: 1000px;
   background: #333;
@@ -47,4 +44,17 @@ ngx-dropzone-image-preview.ng-star-inserted {
 
 .message{
   color: #c2185b;
+}
+
+.dropzone {
+  min-height: 400px;
+  min-width: 400px;
+  display: table;
+  width: 100%;
+  background-color: #eee;
+  border: dotted 1px #aaa;
+}
+
+.textMessage{
+  line-height: 200px;
 }

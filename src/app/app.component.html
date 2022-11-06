@@ -2,19 +2,23 @@
   <mat-step #firstStep [stepControl]="firstFormGroup">
     <div>
       <mat-label class="message">Add Style Image</mat-label>
-      <div class="custom-dropzone" ngx-dropzone>
-        <ngx-dropzone (change)="onSelectStyleFile($event)" [multiple]="false" accept="image/jpeg,image/jpg,image/png">
-          <ngx-dropzone-label class="message">Drop Style Image</ngx-dropzone-label>
-          <ngx-dropzone-image-preview
-            [removable]="true"
-            ngProjectAs="ngx-dropzone-preview"
-            (removed)="onRemoveStyleFile(stylefile)"
-            *ngIf="stylefile!=undefined"
-            [file]="stylefile"
-          >
-            <ngx-dropzone-label>{{ stylefile.name }} ({{ stylefile.type }})</ngx-dropzone-label>
-          </ngx-dropzone-image-preview>
-        </ngx-dropzone>
+      <div
+        *ngIf="!files.length && !imageSelectedWithClick"
+        class="custom-dropzone"
+        appDrag
+        (files)="filesDropped($event)"
+      >
+        <div class="text-wrapper">
+          <div class="textMessage">Drop your file here or select one from below!</div>
+        </div>
+      </div>
+
+      <div appDrag (files)="filesDropped($event)" *ngIf="imageSelectedWithDrop" class="custom-dropzone">
+        <img [src]="files[0].url" width="1000px" height="600px" />
+      </div>
+
+      <div appDrag (files)="filesDropped($event)" *ngIf="imageSelectedWithClick" class="custom-dropzone">
+        <img src="{{imageSelectedWithClickSrc}}" width="1000px" height="600px" />
       </div>
     </div>
     <ng-image-slider

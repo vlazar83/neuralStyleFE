@@ -7,6 +7,7 @@ import { readdirSync } from "fs";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { painting_names } from "../assets/paintings/painting_names";
 import { HttpClientService } from "./httpClient/services/httpClient.service";
+import { FileHandle } from "./directives/drag.directive";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -20,6 +21,10 @@ export class AppComponent implements OnInit {
   contentfileStatus: boolean = false;
   processingStatus: boolean = false;
   imageObject: Array<object> = [];
+  files: FileHandle[] = [];
+  imageSelectedWithClick = false;
+  imageSelectedWithClickSrc = "";
+  imageSelectedWithDrop = false;
 
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ["", Validators.required],
@@ -36,27 +41,6 @@ export class AppComponent implements OnInit {
 
   private animationItem!: AnimationItem;
 
-  options: AnimationOptions = {
-    path: "/assets/lf30_editor_k6rbt75z.json",
-  };
-
-  animationCreated(animationItem: AnimationItem): void {
-    this.animationItem = animationItem;
-    this.animationItem.autoplay = false;
-  }
-
-  play(): void {
-    console.log(this.animationItem.segmentPos);
-    // this.animationItem.goToAndPlay(0);
-    this.animationItem.play();
-    this.startProcessing();
-  }
-
-  onLoopComplete() {
-    this.animationItem.stop();
-    console.log(this.animationItem);
-  }
-
   constructor(
     private _formBuilder: FormBuilder,
     private _snackBar: MatSnackBar,
@@ -67,22 +51,23 @@ export class AppComponent implements OnInit {
     this.fillArray();
   }
 
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action);
+  filesDropped(files: FileHandle[]): void {
+    this.files = files;
+    this.imageSelectedWithClick = false;
+    this.imageSelectedWithDrop = true;
+    this._snackBar.dismiss();
+    this.stylefile = files[0].file;
+    this.stylefileStatus = true;
   }
 
-  onSelectStyleFile(event: { addedFiles: any }) {
-    this.stylefileStatus = false;
-    console.log(event);
-    this.stylefile = event.addedFiles[0];
-    if (event.addedFiles[0] != undefined) this.stylefileStatus = true;
-  }
-
-  onRemoveStyleFile(event: File) {
-    console.log(event);
-    this.stylefile = undefined;
-    this.stylefileStatus = false;
-    //this.files.splice(this.files.indexOf(event), 1);
+  imageClicked(i: number) {
+    console.log("clicked:" + i);
+    this.openSnackBar("Selected painting: " + painting_names.data[i], "OK");
+    this.stylefileStatus = true;
+    this.imageSelectedWithDrop = false;
+    this.imageSelectedWithClick = true;
+    i = i + 1;
+    this.imageSelectedWithClickSrc = "./assets/paintings/large/top-" + i + ".JPG";
   }
 
   onSelectContentFile(event: { addedFiles: any }) {
@@ -108,6 +93,7 @@ export class AppComponent implements OnInit {
     console.log("Fetched token: " + this.token);
   }
 
+  // stepper related codes
   @ViewChild("stepper") stepper!: MatStepper;
 
   nextClicked() {
@@ -134,6 +120,7 @@ export class AppComponent implements OnInit {
     this.contentfileStatus = false;
   }
 
+  // utility
   fillArray() {
     for (let i = 1; i <= 87; i++) {
       this.imageObject.push({
@@ -143,9 +130,23 @@ export class AppComponent implements OnInit {
     }
   }
 
-  imageClicked(i: number) {
-    console.log("clicked:" + i);
-    this.openSnackBar("Selected painting: " + painting_names.data[i], "OK");
-    this.stylefileStatus = true;
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
+  }
+
+  // animation
+  options: AnimationOptions = {
+    path: "/assets/lf30_editor_k6rbt75z.json",
+  };
+
+  animationCreated(animationItem: AnimationItem): void {
+    this.animationItem = animationItem;
+    this.animationItem.autoplay = false;
+  }
+
+  play(): void {
+    console.log(this.animationItem.segmentPos);
+    this.animationItem.play();
+    this.startProcessing();
   }
 }

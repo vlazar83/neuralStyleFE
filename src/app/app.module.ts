@@ -14,6 +14,7 @@ import { NgImageSliderModule } from "ng-image-slider";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { OverlayModule } from "@angular/cdk/overlay";
 import { HttpClientModule } from "@angular/common/http";
+import { DragDirective } from './directives/drag.directive';
 
 // Note we need a separate function as it's required
 // by the AOT compiler.
@@ -21,7 +22,7 @@ export function playerFactory() {
   return player;
 }
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DragDirective],
   imports: [
     BrowserModule,
     HttpClientModule,
