@@ -74,7 +74,6 @@ export const painting_names = {
     ["Sandro_Botticelli-The_Birth_of_Venus"],
     ["Suzanne-Valadon-The-Blue-Room"],
     ["Vincent-Van-Gogh-Cafe-Terrace-at-Night"],
-    ["Vincent-Van-Gogh-Cafe-Terrace-on-the-Place-du-Forum-Arles-at"],
     ["Vincent-Van-Gogh-Haystacks-in-Provence"],
     ["Vincent-Van-Gogh-Portrait-of-Dr--Gachet"],
     ["Vincent-Van-Gogh-Portrait-of-Patience-Escalier-2"],
