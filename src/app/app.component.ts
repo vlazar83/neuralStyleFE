@@ -8,6 +8,8 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 import { painting_names } from "../assets/paintings/painting_names";
 import { HttpClientService } from "./httpClient/services/httpClient.service";
 import { FileHandle } from "./directives/drag.directive";
+import { MatDialog } from "@angular/material/dialog";
+import { ErrorDialogComponent } from "./dialogs/error-dialog/error-dialog.component";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -44,8 +46,20 @@ export class AppComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     private _snackBar: MatSnackBar,
-    private _httpClientService: HttpClientService
+    private _httpClientService: HttpClientService,
+    public dialog: MatDialog
   ) {}
+
+  openDialog(errorCode: string, errorMessage: string): void {
+    const dialogRef = this.dialog.open(ErrorDialogComponent, {
+      width: "500px",
+      data: { errorCode: errorCode, errorMessage: errorMessage },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log("The dialog was closed");
+    });
+  }
 
   ngOnInit(): void {
     this.fillArray();
@@ -98,7 +112,15 @@ export class AppComponent implements OnInit {
 
   async startProcessing() {
     this.processingStatus = false;
-    this._httpClientService.sendImages(this.stylefile!, this.contentfile!);
+    var result = await this.callBackend();
+    if (result === undefined) {
+      this.openDialog("500", "Server is not reachable");
+    }
+  }
+
+  async callBackend() {
+    var result = await this._httpClientService.sendImages(this.stylefile!, this.contentfile!);
+    console.log(result);
   }
 
   // stepper related codes
@@ -134,7 +156,7 @@ export class AppComponent implements OnInit {
 
   // utility
   fillArray() {
-    for (let i = 1; i <= 87; i++) {
+    for (let i = 1; i <= 86; i++) {
       this.imageObject.push({
         image: "assets/paintings/large/top-" + i + ".JPG",
         thumbImage: "assets/paintings/small/top-" + i + ".JPG",

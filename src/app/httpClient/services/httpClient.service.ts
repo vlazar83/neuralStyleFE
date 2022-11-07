@@ -52,8 +52,12 @@ export class HttpClientService {
     formData.append("files", contentFile);
     const upload$ = this.http.post(environment.backendUrl, formData, httpOptions);
 
-    upload$.subscribe((event) => {
-      console.log("uploaded");
-    });
+    await firstValueFrom(upload$)
+      .catch((err) => {
+        console.log(err);
+      })
+      .then((result) => {
+        console.log(result);
+      });
   }
 }

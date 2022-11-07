@@ -14,17 +14,20 @@ import { NgImageSliderModule } from "ng-image-slider";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { OverlayModule } from "@angular/cdk/overlay";
 import { HttpClientModule } from "@angular/common/http";
-import { DragDirective } from './directives/drag.directive';
-
+import { DragDirective } from "./directives/drag.directive";
+import { HttpInterceptorProviders } from "./httpClient/services/httpInterceptors";
+import { ErrorDialogComponent } from "./dialogs/error-dialog/error-dialog.component";
+import { MatDialogModule } from "@angular/material/dialog";
 // Note we need a separate function as it's required
 // by the AOT compiler.
 export function playerFactory() {
   return player;
 }
 @NgModule({
-  declarations: [AppComponent, DragDirective],
+  declarations: [AppComponent, DragDirective, ErrorDialogComponent],
   imports: [
     BrowserModule,
+    MatDialogModule,
     HttpClientModule,
     MatIconModule,
     OverlayModule,
@@ -38,7 +41,7 @@ export function playerFactory() {
     MatInputModule,
     LottieModule.forRoot({ player: playerFactory }),
   ],
-  providers: [MatSnackBar],
+  providers: [MatSnackBar, HttpInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
