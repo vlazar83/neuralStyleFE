@@ -34,6 +34,8 @@ export class AppComponent implements OnInit {
   imageSelectedWithClickSrc = "";
   imageSelectedWithDrop = false;
 
+  resultImageUrl: string = "";
+
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ["", Validators.required],
   });
@@ -128,6 +130,7 @@ export class AppComponent implements OnInit {
     );
     if (result.type === "transferBody") {
       console.log(result);
+      this.resultImageUrl = result.fileUrl;
     } else if (result.type === "transferErrorBody") {
       this.openDialog(result.errorCode, result.errorMessage);
     }
@@ -162,6 +165,8 @@ export class AppComponent implements OnInit {
     this.imageSelectedWithClick = false;
     this.imageSelectedWithDrop = false;
     this.imageSelectedWithClickSrc = "";
+
+    this.resultImageUrl = "";
   }
 
   // utility

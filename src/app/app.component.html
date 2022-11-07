@@ -76,6 +76,14 @@
   </mat-step>
   <mat-step #fourthStep>
     <ng-template matStepLabel>Done</ng-template>
+    <div *ngIf="resultImageUrl != ''">
+      <p class="message">
+        Image processing started. The result will be visible under this URL:
+      </p>
+      <div class="message">
+        <a href="{{resultImageUrl}}">{{resultImageUrl}}</a>
+      </div>
+    </div>
     <p class="message">Click to start a new processing</p>
     <div class="navigationButtonLocation">
       <button class="navigationButton" mat-button (click)="resetClicked()">Go</button>
