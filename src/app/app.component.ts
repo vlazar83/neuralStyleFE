@@ -10,6 +10,12 @@ import { HttpClientService } from "./httpClient/services/httpClient.service";
 import { FileHandle } from "./directives/drag.directive";
 import { MatDialog } from "@angular/material/dialog";
 import { ErrorDialogComponent } from "./dialogs/error-dialog/error-dialog.component";
+import {
+  FetchTokenBody,
+  FetchTokenResponseBody,
+  TransferImagesErrorResponseBody,
+  TransferImagesResponseBody,
+} from "./httpClient/interfaces";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -113,14 +119,18 @@ export class AppComponent implements OnInit {
   async startProcessing() {
     this.processingStatus = false;
     var result = await this.callBackend();
-    if (result === undefined) {
-      this.openDialog("500", "Server is not reachable");
-    }
   }
 
   async callBackend() {
-    var result = await this._httpClientService.sendImages(this.stylefile!, this.contentfile!);
-    console.log(result);
+    var result: TransferImagesResponseBody | TransferImagesErrorResponseBody = await this._httpClientService.sendImages(
+      this.stylefile!,
+      this.contentfile!
+    );
+    if (result.type === "transferBody") {
+      console.log(result);
+    } else if (result.type === "transferErrorBody") {
+      this.openDialog(result.errorCode, result.errorMessage);
+    }
   }
 
   // stepper related codes

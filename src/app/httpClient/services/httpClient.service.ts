@@ -1,9 +1,13 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { firstValueFrom, Observable, throwError } from "rxjs";
-import { catchError, retry } from "rxjs/operators";
+import { firstValueFrom } from "rxjs";
 import { environment } from "src/environments/environment";
-import { FetchTokenBody, FetchTokenResponseBody } from "../interfaces";
+import {
+  FetchTokenBody,
+  FetchTokenResponseBody,
+  TransferImagesErrorResponseBody,
+  TransferImagesResponseBody,
+} from "../interfaces";
 import { FETCH_TOKEN_BASIC_AUTH_HEADER_VALUE } from "src/environments/secret/secret";
 
 @Injectable({
@@ -39,7 +43,10 @@ export class HttpClientService {
     return token;
   }
 
-  async sendImages(styleFile: File, contentFile: File) {
+  async sendImages(
+    styleFile: File,
+    contentFile: File
+  ): Promise<TransferImagesResponseBody | TransferImagesErrorResponseBody> {
     var token = await this.fetchToken()!;
     var httpOptions = {
       headers: new HttpHeaders({
@@ -47,17 +54,28 @@ export class HttpClientService {
       }),
     };
 
+    let result: TransferImagesResponseBody | TransferImagesErrorResponseBody;
     let formData = new FormData();
     formData.append("files", styleFile);
     formData.append("files", contentFile);
-    const upload$ = this.http.post(environment.backendUrl, formData, httpOptions);
+    const upload$ = this.http.post<TransferImagesResponseBody>(environment.backendUrl, formData, httpOptions);
 
     await firstValueFrom(upload$)
       .catch((err) => {
         console.log(err);
+        result = {
+          errorCode: err.status,
+          errorMessage: err.statusText,
+          type: "transferErrorBody",
+        } as TransferImagesErrorResponseBody;
       })
-      .then((result) => {
-        console.log(result);
+      .then((res) => {
+        console.log(res);
+        if (result === undefined) {
+          result = { fileUrl: res!.fileUrl, type: "transferBody" } as TransferImagesResponseBody;
+        }
       });
+
+    return result!;
   }
 }

@@ -8,3 +8,14 @@ export interface FetchTokenResponseBody {
   expires_in: string;
   token_type: string;
 }
+
+export interface TransferImagesResponseBody {
+  fileUrl: string;
+  type: "transferBody";
+}
+
+export interface TransferImagesErrorResponseBody {
+  errorCode: string;
+  errorMessage: string;
+  type: "transferErrorBody";
+}
