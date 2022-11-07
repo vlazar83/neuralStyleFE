@@ -49,6 +49,8 @@ export class AppComponent implements OnInit {
   isLinear = false;
 
   token: string = "";
+  openErrorDialog: boolean = false;
+  errorResult!: TransferImagesErrorResponseBody;
 
   private animationItem!: AnimationItem;
 
@@ -144,7 +146,8 @@ export class AppComponent implements OnInit {
       console.log(result);
       this.resultImageUrl = result.fileUrl;
     } else if (result.type === "transferErrorBody") {
-      this.openDialog(result.errorCode, result.errorMessage);
+      this.openErrorDialog = true;
+      this.errorResult = result;
     }
   }
 
@@ -179,6 +182,7 @@ export class AppComponent implements OnInit {
     this.imageSelectedWithClickSrc = "";
 
     this.resultImageUrl = "";
+    this.openErrorDialog = false;
   }
 
   // utility
@@ -211,5 +215,9 @@ export class AppComponent implements OnInit {
     console.log(this.animationItem.segmentPos);
     this.animationItem.play();
     this.startProcessing();
+  }
+
+  openErrorDialogIfNeeded() {
+    if (this.openErrorDialog) this.openDialog(this.errorResult.errorCode, this.errorResult.errorMessage);
   }
 }

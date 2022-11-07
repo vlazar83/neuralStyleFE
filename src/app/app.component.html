@@ -64,7 +64,7 @@
       height="500px"
       [options]="options"
       (animationCreated)="animationCreated($event)"
-      (loopComplete)="stepper.next()"
+      (loopComplete)="stepper.next(); openErrorDialogIfNeeded();"
       (click)="play()"
     ></ng-lottie>
 
