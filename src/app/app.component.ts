@@ -80,13 +80,13 @@ export class AppComponent implements OnInit {
       this.stylefile = files[0].file;
       this.stylefileStatus = true;
     } else {
-      this.openSnackBar("Please drop image only", "OK");
+      this.openSnackBar("Please drop image only");
     }
   }
 
   async imageClicked(i: number) {
     console.log("clicked:" + i);
-    this.openSnackBar("Selected painting: " + painting_names.data[i], "OK");
+    this.openSnackBar("Selected painting: " + painting_names.data[i]);
     this.stylefileStatus = true;
     this.imageSelectedWithDrop = false;
     this.imageSelectedWithClick = true;
@@ -174,8 +174,10 @@ export class AppComponent implements OnInit {
     }
   }
 
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action);
+  openSnackBar(message: string) {
+    this._snackBar.open(message, undefined, {
+      duration: 2000,
+    });
   }
 
   // animation
