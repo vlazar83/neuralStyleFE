@@ -18,6 +18,7 @@ import { DragDirective } from "./directives/drag.directive";
 import { HttpInterceptorProviders } from "./httpClient/services/httpInterceptors";
 import { ErrorDialogComponent } from "./dialogs/error-dialog/error-dialog.component";
 import { MatDialogModule } from "@angular/material/dialog";
+import { MatSelectModule } from "@angular/material/select";
 // Note we need a separate function as it's required
 // by the AOT compiler.
 export function playerFactory() {
@@ -30,6 +31,7 @@ export function playerFactory() {
     MatDialogModule,
     HttpClientModule,
     MatIconModule,
+    MatSelectModule,
     OverlayModule,
     NgImageSliderModule,
     NgxDropzoneModule,

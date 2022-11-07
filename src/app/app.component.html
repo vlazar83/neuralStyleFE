@@ -69,6 +69,23 @@
     ></ng-lottie>
 
     <div class="navigationButtonLocation">
+      <mat-form-field appearance="fill">
+        <mat-label>Select iteration count</mat-label>
+        <mat-select #matSelectIter [(ngModel)]="modeselect" [placeholder]="modeselect">
+          <mat-option value="iter1">100</mat-option>
+          <mat-option value="iter2">200</mat-option>
+          <mat-option value="iter3">300</mat-option>
+          <mat-option value="iter4">400</mat-option>
+          <mat-option value="iter5">500</mat-option>
+          <mat-option value="iter6">600</mat-option>
+          <mat-option value="iter7">700</mat-option>
+          <mat-option value="iter8">800</mat-option>
+          <mat-option value="iter9">900</mat-option>
+          <mat-option value="iter10">1000</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="navigationButtonLocation">
       <button class="navigationButton" mat-button matStepperPrevious [disabled]="!processingStatus">
         <mat-icon>navigate_before</mat-icon>
       </button>

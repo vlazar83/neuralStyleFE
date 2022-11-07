@@ -45,7 +45,8 @@ export class HttpClientService {
 
   async sendImages(
     styleFile: File,
-    contentFile: File
+    contentFile: File,
+    iterCount: string
   ): Promise<TransferImagesResponseBody | TransferImagesErrorResponseBody> {
     var token = await this.fetchToken()!;
     var httpOptions = {
@@ -58,7 +59,11 @@ export class HttpClientService {
     let formData = new FormData();
     formData.append("files", styleFile);
     formData.append("files", contentFile);
-    const upload$ = this.http.post<TransferImagesResponseBody>(environment.backendUrl, formData, httpOptions);
+    const upload$ = this.http.post<TransferImagesResponseBody>(
+      environment.backendUrl + "?num_iterations=" + iterCount,
+      formData,
+      httpOptions
+    );
 
     await firstValueFrom(upload$)
       .catch((err) => {

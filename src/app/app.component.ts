@@ -16,6 +16,7 @@ import {
   TransferImagesErrorResponseBody,
   TransferImagesResponseBody,
 } from "./httpClient/interfaces";
+import { MatSelect } from "@angular/material/select";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -33,7 +34,7 @@ export class AppComponent implements OnInit {
   imageSelectedWithClick = false;
   imageSelectedWithClickSrc = "";
   imageSelectedWithDrop = false;
-
+  public modeselect = "iter1";
   resultImageUrl: string = "";
 
   firstFormGroup = this._formBuilder.group({
@@ -118,15 +119,26 @@ export class AppComponent implements OnInit {
     this.contentfileStatus = false;
   }
 
+  @ViewChild("matSelectIter") matSelectIter!: MatSelect;
+
   async startProcessing() {
     this.processingStatus = false;
-    var result = await this.callBackend();
+    console.log("Iter value : " + this.matSelectIter.value);
+    var result = await this.callBackend(this.matSelectIter.value);
   }
 
-  async callBackend() {
+  async callBackend(iterCount: string) {
+    var interCountNum: number;
+    if (iterCount === undefined || isNaN(Number(iterCount.slice(4)))) {
+      interCountNum = 100;
+    } else {
+      interCountNum = Number(iterCount.slice(4)) * 100;
+    }
+
     var result: TransferImagesResponseBody | TransferImagesErrorResponseBody = await this._httpClientService.sendImages(
       this.stylefile!,
-      this.contentfile!
+      this.contentfile!,
+      interCountNum.toString()
     );
     if (result.type === "transferBody") {
       console.log(result);

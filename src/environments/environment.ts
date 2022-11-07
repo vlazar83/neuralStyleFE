@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   tokenUrl: "https://dev-sm4ylq004f4gs18a.eu.auth0.com/oauth/token",
-  backendUrl: "http://localhost:3000/transfer?num_iterations=100",
+  backendUrl: "http://localhost:3000/transfer",
 };
 
 /*
