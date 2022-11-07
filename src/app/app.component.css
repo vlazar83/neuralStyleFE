@@ -44,6 +44,7 @@ ngx-dropzone-image-preview.ng-star-inserted {
 
 .message{
   color: #c2185b;
+  text-align: center;
 }
 
 .dropzone {
@@ -57,4 +58,8 @@ ngx-dropzone-image-preview.ng-star-inserted {
 
 .textMessage{
   line-height: 200px;
+}
+
+.navigationButtonLocation{
+  text-align: center;
 }

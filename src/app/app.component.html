@@ -68,7 +68,7 @@
       (click)="play()"
     ></ng-lottie>
 
-    <div>
+    <div class="navigationButtonLocation">
       <button class="navigationButton" mat-button matStepperPrevious [disabled]="!processingStatus">
         <mat-icon>navigate_before</mat-icon>
       </button>
@@ -77,7 +77,7 @@
   <mat-step #fourthStep>
     <ng-template matStepLabel>Done</ng-template>
     <p class="message">Click to start a new processing</p>
-    <div>
+    <div class="navigationButtonLocation">
       <button class="navigationButton" mat-button (click)="resetClicked()">Go</button>
     </div>
   </mat-step>

@@ -6,3 +6,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
 .mat-horizontal-content-container.ng-tns-c90-0.ng-star-inserted {
   text-align: -moz-center;
 }
+
+div#cdk-step-content-0-0 {
+  text-align: -webkit-center;
+}
+
+div#cdk-step-content-0-1 {
+  text-align: -webkit-center;
+}

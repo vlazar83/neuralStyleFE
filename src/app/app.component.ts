@@ -124,6 +124,10 @@ export class AppComponent implements OnInit {
     this.contentfile = undefined;
     this.stylefileStatus = false;
     this.contentfileStatus = false;
+
+    this.imageSelectedWithClick = false;
+    this.imageSelectedWithDrop = false;
+    this.imageSelectedWithClickSrc = "";
   }
 
   // utility
