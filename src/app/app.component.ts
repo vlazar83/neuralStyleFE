@@ -52,12 +52,16 @@ export class AppComponent implements OnInit {
   }
 
   filesDropped(files: FileHandle[]): void {
-    this.files = files;
-    this.imageSelectedWithClick = false;
-    this.imageSelectedWithDrop = true;
-    this._snackBar.dismiss();
-    this.stylefile = files[0].file;
-    this.stylefileStatus = true;
+    if (files[0].file.type.match("image.*")) {
+      this.files = files;
+      this.imageSelectedWithClick = false;
+      this.imageSelectedWithDrop = true;
+      this._snackBar.dismiss();
+      this.stylefile = files[0].file;
+      this.stylefileStatus = true;
+    } else {
+      this.openSnackBar("Please drop image only", "OK");
+    }
   }
 
   async imageClicked(i: number) {
@@ -94,8 +98,6 @@ export class AppComponent implements OnInit {
 
   async startProcessing() {
     this.processingStatus = false;
-    // this.token = await this._httpClientService.fetchToken()!;
-    // console.log("Fetched token: " + this.token);
     this._httpClientService.sendImages(this.stylefile!, this.contentfile!);
   }
 
