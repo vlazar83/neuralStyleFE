@@ -218,6 +218,9 @@ export class AppComponent implements OnInit {
   }
 
   openErrorDialogIfNeeded() {
-    if (this.openErrorDialog) this.openDialog(this.errorResult.errorCode, this.errorResult.errorMessage);
+    if (this.openErrorDialog) {
+      this.openDialog(this.errorResult.errorCode, this.errorResult.errorMessage);
+      this.openErrorDialog = false;
+    }
   }
 }
