@@ -19,13 +19,14 @@ import { HttpInterceptorProviders } from "./httpClient/services/httpInterceptors
 import { ErrorDialogComponent } from "./dialogs/error-dialog/error-dialog.component";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatSelectModule } from "@angular/material/select";
+import { MonitorComponent } from './monitoring/monitor/monitor.component';
 // Note we need a separate function as it's required
 // by the AOT compiler.
 export function playerFactory() {
   return player;
 }
 @NgModule({
-  declarations: [AppComponent, DragDirective, ErrorDialogComponent],
+  declarations: [AppComponent, DragDirective, ErrorDialogComponent, MonitorComponent],
   imports: [
     BrowserModule,
     MatDialogModule,
