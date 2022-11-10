@@ -50,9 +50,11 @@ export class AppComponent implements OnInit {
 
   token: string = "";
   openErrorDialog: boolean = false;
+  processingStarted: boolean = false;
   errorResult!: TransferImagesErrorResponseBody;
 
   private animationItem!: AnimationItem;
+  private animationItem2!: AnimationItem;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -145,6 +147,7 @@ export class AppComponent implements OnInit {
     if (result.type === "transferBody") {
       console.log(result);
       this.resultImageUrl = result.fileUrl;
+      this.processingStarted = true;
     } else if (result.type === "transferErrorBody") {
       this.openErrorDialog = true;
       this.errorResult = result;
@@ -183,6 +186,7 @@ export class AppComponent implements OnInit {
 
     this.resultImageUrl = "";
     this.openErrorDialog = false;
+    this.processingStarted = false;
   }
 
   // utility
@@ -206,15 +210,29 @@ export class AppComponent implements OnInit {
     path: "/assets/lf30_editor_k6rbt75z.json",
   };
 
+  // animation
+  options2: AnimationOptions = {
+    path: "/assets/124009-cubes-loader-1.json",
+  };
+
   animationCreated(animationItem: AnimationItem): void {
     this.animationItem = animationItem;
     this.animationItem.autoplay = false;
   }
 
-  play(): void {
+  animation2Created(animationItem: AnimationItem): void {
+    this.animationItem2 = animationItem;
+    this.animationItem2.autoplay = false;
+  }
+
+  play(i: number): void {
     console.log(this.animationItem.segmentPos);
-    this.animationItem.play();
-    this.startProcessing();
+    if (i === 1) {
+      this.animationItem.play();
+      this.startProcessing();
+    } else if (i === 2) {
+      this.animationItem2.play();
+    }
   }
 
   openErrorDialogIfNeeded() {

@@ -65,7 +65,7 @@
       [options]="options"
       (animationCreated)="animationCreated($event)"
       (loopComplete)="stepper.next(); openErrorDialogIfNeeded();"
-      (click)="play()"
+      (click)="play(1)"
     ></ng-lottie>
 
     <div class="navigationButtonLocation">
@@ -101,6 +101,12 @@
         <a href="{{resultImageUrl}}">{{resultImageUrl}}</a>
       </div>
     </div>
+    <ng-lottie
+      *ngIf="this.processingStarted"
+      height="500px"
+      [options]="options2"
+      (animationCreated)="animation2Created($event);play(2);"
+    ></ng-lottie>
     <p class="message">Click to start a new processing</p>
     <div class="navigationButtonLocation">
       <button class="navigationButton" mat-button (click)="resetClicked()">Go</button>
