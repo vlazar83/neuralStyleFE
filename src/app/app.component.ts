@@ -98,7 +98,7 @@ export class AppComponent implements OnInit {
     this.imageSelectedWithDrop = false;
     this.imageSelectedWithClick = true;
     i = i + 1;
-    this.imageSelectedWithClickSrc = "./assets/paintings/large/top-" + i + ".JPG";
+    this.imageSelectedWithClickSrc = "./assets/paintings/large/famous/famous-" + i + ".JPG";
 
     const imageUrl = await fetch(this.imageSelectedWithClickSrc);
     const buffer = await imageUrl.arrayBuffer();
@@ -191,10 +191,10 @@ export class AppComponent implements OnInit {
 
   // utility
   fillArray() {
-    for (let i = 1; i <= 86; i++) {
+    for (let i = 1; i <= 17; i++) {
       this.imageObject.push({
-        image: "assets/paintings/large/top-" + i + ".JPG",
-        thumbImage: "assets/paintings/small/top-" + i + ".JPG",
+        image: "assets/paintings/large/famous/famous-" + i + ".JPG",
+        thumbImage: "assets/paintings/small/famous/famous-" + i + ".JPG",
       });
     }
   }

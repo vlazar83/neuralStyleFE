@@ -8,18 +8,18 @@
 
 ngx-dropzone {
   height: 599px !important;
-  width: 1000px !important;
+  width: 600px !important;
 }
 
 ngx-dropzone-image-preview.ng-star-inserted {
   height: 599px !important;
-  width: 1000px !important;
+  width: 600px !important;
 }
 
 .custom-dropzone {
   margin: 20px;
   height: 600px;
-  width: 1000px;
+  width: 600px;
   background: #333;
   color: #fff;
   border: 5px solid #c2185b;
