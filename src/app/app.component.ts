@@ -93,7 +93,7 @@ export class AppComponent implements OnInit {
 
   async imageClicked(i: number) {
     console.log("clicked:" + i);
-    this.openSnackBar("Selected painting: " + painting_names.data[i]);
+    this.openSnackBar("Selected painting: " + painting_names.famous[i]);
     this.stylefileStatus = true;
     this.imageSelectedWithDrop = false;
     this.imageSelectedWithClick = true;
