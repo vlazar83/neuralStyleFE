@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
   imageSelectedWithClick = false;
   imageSelectedWithClickSrc = "";
   imageSelectedWithDrop = false;
-  public modeselect = "iter1";
+  public modeselect = "iter5";
   resultImageUrl: string = "";
 
   firstFormGroup = this._formBuilder.group({
@@ -134,7 +134,7 @@ export class AppComponent implements OnInit {
   async callBackend(iterCount: string) {
     var interCountNum: number;
     if (iterCount === undefined || isNaN(Number(iterCount.slice(4)))) {
-      interCountNum = 100;
+      interCountNum = 500;
     } else {
       interCountNum = Number(iterCount.slice(4)) * 100;
     }

@@ -18,3 +18,7 @@ div#cdk-step-content-0-1 {
 a {
   color: #c2185b;
 }
+
+.ng-star-inserted {
+  text-align: -moz-center;
+}
