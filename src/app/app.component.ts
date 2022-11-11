@@ -102,8 +102,8 @@ export class AppComponent implements OnInit {
 
     const imageUrl = await fetch(this.imageSelectedWithClickSrc);
     const buffer = await imageUrl.arrayBuffer();
-
-    this.stylefile = new File([buffer], "fileName");
+    i = i - 1;
+    this.stylefile = new File([buffer], painting_names.famous[i][0] + ".JPG");
   }
 
   onSelectContentFile(event: { addedFiles: any }) {
